@@ -1,0 +1,39 @@
+PENDIENTES DE PROYECTO WEB 
+
+- formulario supabase (contacto) 
+- botones redes sociales con logo 
+- quitar "actividades" del carrousel main 
+
+
+INICIO 
+- hacer funcional la parte de sponsor (carrousel)
+- poner sección de conocer al plantel 2025
+
+
+NOTICIAS 
+- escribir las noticias reales 
+	- renovación instalaciones 
+	- proyecto legislatura
+	- nueva camiseta 2025
+- ponerles un buen head 
+- eliminar comportamiento de mouse (que cambia de color) 
+- revisar navegadores y footers de cada una 
+
+SOCIO 
+- eliminar testimonio y poner información de los planes 
+
+SPONSOR 
+- idear 3 o 4 organizaciones que nos apoyen 
+
+EL CLUB 
+- Que voy a poner en historia? 
+- borrar dos cajas de valores, o agregar dos más 
+- foto del estadio y de la cancha de futbol 7 
+- fotos de la comisión directiva 
+- lista de la comisión completa 
+
+FUTBOL 
+- fotos de la escuelita de futbol 
+- equilibrar foto de la reserva 
+
+

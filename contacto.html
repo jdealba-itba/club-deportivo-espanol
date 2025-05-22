@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contactá con el Club Deportivo Español. Información de contacto, ubicación y formulario para consultas.">
+    <meta name="keywords" content="contacto, club deportivo, ubicación, consultas, información">
+    <title>Contacto - Club Deportivo Español</title>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <style>
+        /* Variables CSS */
+        :root {
+            --color-rojo: #AA151B;
+            --color-blanco: #ffffff;
+            --color-negro: #1d1d1d;
+            --color-gris-claro: #f8f9fa;
+            --color-gris: #e9ecef;
+            --color-gris-oscuro: #6c757d;
+            --color-amarillo: #fbff00;
+            --sombra: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transicion: all 0.3s ease;
+            --borde-radio: 8px;
+            --fuente-principal: 'Poppins', sans-serif;
+        }
+
+        /* Reset y estilos base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--fuente-principal);
+            line-height: 1.6;
+            color: var(--color-negro);
+            background-color: var(--color-blanco);
+        }
+
+        /* Sección Contacto */
+        .seccion-contacto {
+            padding: 80px 0;
+            background-color: var(--color-gris-claro);
+            margin-top: 80px; /* Espacio para el header fijo */
+        }
+
+        .contenedor {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .titulo-seccion {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+            padding-bottom: 15px;
+            color: var(--color-negro);
+        }
+
+        .titulo-seccion::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--color-rojo);
+        }
+
+        /* Contenedor de dos columnas */
+        .contenido-contacto {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        /* Columna del formulario */
+        .columna-formulario {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contenedor-formulario {
+            background-color: var(--color-blanco);
+            padding: 30px;
+            border-radius: var(--borde-radio);
+            box-shadow: var(--sombra);
+        }
+
+        .formulario-contacto {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .campo {
+            margin-bottom: 5px;
+        }
+
+        .campo label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--color-negro);
+        }
+
+        .campo input,
+        .campo textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--color-gris);
+            border-radius: var(--borde-radio);
+            font-size: 1rem;
+            font-family: var(--fuente-principal);
+            transition: var(--transicion);
+        }
+
+        .campo input:focus,
+        .campo textarea:focus {
+            outline: none;
+            border-color: var(--color-rojo);
+            box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.2);
+        }
+
+        .campo textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .campo-boton {
+            margin-top: 10px;
+        }
+
+        .boton-enviar {
+            width: 100%;
+            padding: 14px;
+            background-color: var(--color-rojo);
+            color: var(--color-blanco);
+            border: none;
+            border-radius: var(--borde-radio);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transicion);
+        }
+
+        .boton-enviar:hover {
+            background-color: #d32836;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(230, 57, 70, 0.3);
+        }
+
+        /* Columna de información de contacto */
+        .columna-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contenedor-info {
+            background-color: var(--color-blanco);
+            padding: 30px;
+            border-radius: var(--borde-radio);
+            box-shadow: var(--sombra);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .titulo-info {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--color-negro);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .titulo-info::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--color-rojo);
+        }
+
+        .lista-contacto {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .item-contacto {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .icono-contacto {
+            color: var(--color-rojo);
+            font-size: 1.2rem;
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+
+        .texto-contacto {
+            flex: 1;
+        }
+
+        .texto-contacto strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* Redes sociales */
+        .redes-sociales {
+            margin-bottom: 30px;
+        }
+
+        .lista-redes {
+            display: flex;
+            gap: 15px;
+        }
+
+        .enlace-red {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--color-gris-claro);
+            border-radius: 50%;
+            color: var(--color-negro);
+            text-decoration: none;
+            transition: var(--transicion);
+        }
+
+        .enlace-red:hover {
+            background-color: var(--color-rojo);
+            color: var(--color-blanco);
+            transform: translateY(-3px);
+        }
+
+        /* Mapa */
+        .contenedor-mapa {
+            margin-top: auto;
+            border-radius: var(--borde-radio);
+            overflow: hidden;
+            height: 250px;
+        }
+
+        .mapa {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .seccion-contacto {
+                padding: 60px 0;
+            }
+            
+            .titulo-seccion {
+                font-size: 2.2rem;
+                margin-bottom: 40px;
+            }
+            
+            .contenido-contacto {
+                flex-direction: column;
+            }
+            
+            .columna-formulario, 
+            .columna-info {
+                width: 100%;
+            }
+            
+            .contenedor-info {
+                margin-top: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .titulo-seccion {
+                font-size: 1.8rem;
+            }
+            
+            .contenedor-formulario,
+            .contenedor-info {
+                padding: 20px;
+            }
+            
+            .campo input,
+            .campo textarea,
+            .boton-enviar {
+                padding: 10px 12px;
+            }
+            
+            .titulo-info {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header con logo y menú de navegación fijo -->
+    <header class="cabecera">
+        <div class="contenedor">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="img/escudo.png" alt="Logo Club Deportivo Español">
+                </a>
+            </div>
+            <nav class="navegacion">
+                <button class="boton-menu" aria-label="Abrir menú">
+                    <span class="barra"></span>
+                    <span class="barra"></span>
+                    <span class="barra"></span>
+                </button>
+                <ul class="menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="club.html">El Club</a></li>
+                    <li><a href="futbol.html">Fútbol</a></li>
+                    <li><a href="noticias.html">Noticias</a></li>
+                    <li><a href="sponsors.html">Sponsors</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="socios.html" class="boton boton-rojo" style="background-color: var(--color-rojo); color: var(--color-amarillo); border: 2px solid var(--color-rojo);">Hacete Socio</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero de la página -->
+    <section class="hero-seccion" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/placeholder.svg?height=500&width=1920');">
+        <div class="contenedor">
+            <h1 class="titulo-principal">Contacto</h1>
+            <p class="subtitulo">Estamos para ayudarte</p>
+        </div>
+    </section>
+
+    <section id="contacto" class="seccion-contacto">
+        <div class="contenedor">
+            <h2 class="titulo-seccion">Contacto</h2>
+            
+            <div class="contenido-contacto">
+                <!-- Columna del formulario -->
+                <div class="columna-formulario">
+                    <div class="contenedor-formulario">
+                        <form class="formulario-contacto">
+                            <div class="campo">
+                                <label for="nombre">Nombre completo</label>
+                                <input type="text" id="nombre" name="nombre" required>
+                            </div>
+                            
+                            <div class="campo">
+                                <label for="email">Correo electrónico</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="campo">
+                                <label for="mensaje">Mensaje</label>
+                                <textarea id="mensaje" name="mensaje" required></textarea>
+                            </div>
+                            
+                            <div class="campo-boton">
+                                <button type="submit" class="boton-enviar">Enviar consulta</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Columna de información de contacto -->
+                <div class="columna-info">
+                    <div class="contenedor-info">
+                        <h3 class="titulo-info">Información de contacto</h3>
+                        
+                        <ul class="lista-contacto">
+                            <li class="item-contacto">
+                                <i class="fas fa-map-marker-alt icono-contacto"></i>
+                                <div class="texto-contacto">
+                                    <strong>Dirección:</strong>
+                                    Av. Santiago de Compostela 3801, CABA
+                                </div>
+                            </li>
+                            
+                            <li class="item-contacto">
+                                <i class="fas fa-phone icono-contacto"></i>
+                                <div class="texto-contacto">
+                                    <strong>Teléfono:</strong>
+                                    (011) 4567-8900
+                                </div>
+                            </li>
+                            
+                            <li class="item-contacto">
+                                <i class="fas fa-envelope icono-contacto"></i>
+                                <div class="texto-contacto">
+                                    <strong>Email:</strong>
+                                    info@clubdeportivo.com
+                                </div>
+                            </li>
+                            
+                            <li class="item-contacto">
+                                <i class="fas fa-clock icono-contacto"></i>
+                                <div class="texto-contacto">
+                                    <strong>Horario de atención:</strong>
+                                    Lunes a Viernes: 9:00 - 20:00<br>
+                                    Sábados: 9:00 - 14:00
+                                </div>
+                            </li>
+                        </ul>
+                        
+                        <div class="redes-sociales">
+                            <h4 class="titulo-info">Seguinos en redes</h4>
+                            <div class="lista-redes">
+                                <a href="https://www.instagram.com/clubdeportivoespanol/?hl=es" class="enlace-red" aria-label="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://www.facebook.com/CDEspanol1956/?locale=es_LA" class="enlace-red" aria-label="Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="https://x.com/CDEspanol?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" class="enlace-red" aria-label="Twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="contenedor-mapa">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.237381788609!2d-58.44916668499998!3d-34.593453980458675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc3e56f2fd6b1%3A0xe8b3e6ded19f5!2sAv.%20Santiago%20de%20Compostela%203801%2C%20CABA!5e0!3m2!1ses!2sar!4v1660000000000!5m2!1ses!2sar" class="mapa" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <footer class="pie">
+        <div class="contenedor">
+            <div class="columnas-footer">
+                <div class="columna-footer">
+                    <div class="logo-footer">
+                        <img src="img/escudo.png" alt="Logo Club Deportivo Español">
+                    </div>
+                    <p>Más de 65 años fomentando el deporte y los valores que lo acompañan en nuestra comunidad.</p>
+                    <div class="redes-sociales-footer">
+                        <a href="https://www.facebook.com/CDEspanol1956/?locale=es_LA" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/clubdeportivoespanol/?hl=es" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://x.com/CDEspanol?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" aria-label="X">
+                            <i class="fab fa-x-twitter"></i>
+                        </a>
+                        <a href="https://www.youtube.com/c/FuriaEspa%C3%B1olaTV" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="columna-footer">
+                    <h3>Enlaces rápidos</h3>
+                    <ul class="enlaces-footer">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="club.html">El Club</a></li>
+                        <li><a href="futbol.html">Fútbol</a></li>
+                        <li><a href="noticias.html">Noticias</a></li>
+                        <li><a href="socios.html">Socios</a></li>
+                        <li><a href="sponsors.html">Sponsors</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="columna-footer">
+                    <h3>Contacto</h3>
+                    <ul class="info-contacto">
+                        <li><i class="fas fa-map-marker-alt"></i> Av. Santiago de Compostela 3801, CABA</li>
+                        <li><i class="fas fa-phone"></i> (011) 4567-8900</li>
+                        <li><i class="fas fa-envelope"></i> info@clubdeportivo.com</li>
+                        <li><i class="fas fa-clock"></i> Lun-Vie: 8:00 - 22:00, Sáb-Dom: 9:00 - 20:00</li>
+                    </ul>
+                </div>
+                
+                <div class="columna-footer">
+                    <h3>Ubicación</h3>
+                    <div style="border-radius: var(--borde-radio); overflow: hidden; height: 200px;">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.237381788609!2d-58.44916668499998!3d-34.593453980458675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc3e56f2fd6b1%3A0xe8b3e6ded19f5!2sAv.%20Santiago%20de%20Compostela%203801%2C%20CABA!5e0!3m2!1ses!2sar!4v1660000000000!5m2!1ses!2sar" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Club Deportivo Español. Todos los derechos reservados.</p>
+                <ul class="enlaces-legales">
+                    <li><a href="terminos-y-condiciones.html">Términos y condiciones</a></li>
+                    <li><a href="privacidad.html">Política de privacidad</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer><!-- Footer con redes sociales, mapa y contacto -->
+
+
+    <script src="js/scripts.js"></script>
+</body>
+</html>
