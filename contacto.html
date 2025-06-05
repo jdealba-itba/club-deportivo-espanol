@@ -6,7 +6,7 @@
     <meta name="description" content="Contactá con el Club Deportivo Español. Información de contacto, ubicación y formulario para consultas.">
     <meta name="keywords" content="contacto, club deportivo, ubicación, consultas, información">
     <title>Contacto - Club Deportivo Español</title>
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../img/escudo.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -353,22 +353,23 @@
                 <!-- Columna del formulario -->
                 <div class="columna-formulario">
                     <div class="contenedor-formulario">
-                        <form class="formulario-contacto">
+                        <form class="formulario-contacto" id="formulario-contacto">
                             <div class="campo">
-                                <label for="nombre">Nombre completo</label>
-                                <input type="text" id="nombre" name="nombre" required>
+                                <label for="nombre-contacto">Nombre completo</label>
+                                <input type="text" id="nombre-contacto" name="nombre" required>
                             </div>
-                            
                             <div class="campo">
-                                <label for="email">Correo electrónico</label>
-                                <input type="email" id="email" name="email" required>
+                                <label for="telefono-contacto">Teléfono</label>
+                                <input type="tel" id="telefono-contacto" name="telefono" pattern="[0-9+\s()-]{7,}" required>
                             </div>
-                            
                             <div class="campo">
-                                <label for="mensaje">Mensaje</label>
-                                <textarea id="mensaje" name="mensaje" required></textarea>
+                                <label for="correo-contacto">Correo electrónico</label>
+                                <input type="email" id="correo-contacto" name="email" required>
                             </div>
-                            
+                            <div class="campo">
+                                <label for="mensaje-contacto">Mensaje</label>
+                                <textarea id="mensaje-contacto" name="mensaje" required></textarea>
+                            </div>
                             <div class="campo-boton">
                                 <button type="submit" class="boton-enviar">Enviar consulta</button>
                             </div>
@@ -506,6 +507,74 @@
     </footer><!-- Footer con redes sociales, mapa y contacto -->
 
 
-    <script src="js/scripts.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Inicializás EmailJS con tu public key (solo si está disponible)
+  const supabaseClient = supabase.createClient(
+    'https://mnwcpllqxqkmdhxdossl.supabase.co',
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1ud2NwbGxxeHFrbWRoeGRvc3NsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc4MDA3MDYsImV4cCI6MjA2MzM3NjcwNn0.dBcLjWA09F7Lpy19SRYdb2bDXFfHscpF3vpHcz-f_F8' 
+  );
+  emailjs.init("Vzd_WPCIFPISk5GUn");
+
+  const formulario = document.querySelector('.formulario-contacto');
+
+  let feedback = document.getElementById('mensaje-contacto-feedback');
+  if (!feedback) {
+    feedback = document.createElement('div');
+    feedback.id = 'mensaje-contacto-feedback';
+    formulario.appendChild(feedback);
+  }
+
+  formulario.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const nombre   = document.getElementById('nombre-contacto').value.trim();
+    const telefono = document.getElementById('telefono-contacto').value.trim();
+    const email    = document.getElementById('correo-contacto').value.trim();
+    const mensaje  = document.getElementById('mensaje-contacto').value.trim();
+
+    if (!nombre || !telefono || !email || !mensaje) {
+      feedback.innerText = '❌ Por favor, completa todos los campos.';
+      feedback.style.color = 'darkred';
+      return;
+    }
+
+    // 1) Guardás en Supabase
+    const { error, data } = await supabaseClient
+      .from('contacto')
+      .insert([{ 
+        nombreCompleto: nombre, 
+        email: email, 
+        telefono: telefono, 
+        mensaje: mensaje 
+      }]);
+
+    if (error) {
+      feedback.innerText = '❌ Ocurrió un error al enviar tu mensaje: ' + (error.message || error.details || error.toString());
+      feedback.style.color = 'darkred';
+      console.error(error);
+      return;
+    }
+
+    // 2) Enviar mail con EmailJS
+    emailjs.sendForm('service_0k03ypc', 'template_7pasgtx', formulario)
+      .then(() => {
+        feedback.innerText = '✅ ¡Mensaje registrado con éxito! Te enviamos un correo con los pasos a seguir.';
+        feedback.style.color = 'green';
+        formulario.reset();
+      })
+      .catch((err) => {
+        feedback.innerText = '⚠️ Socio registrado, pero no se pudo enviar el correo.';
+        feedback.style.color = 'darkorange';
+        console.error(err);
+      });
+  });
+});
+</script>
+
+
 </body>
 </html>

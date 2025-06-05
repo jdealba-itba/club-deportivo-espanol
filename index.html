@@ -6,7 +6,7 @@
     <meta name="description" content="Club Deportivo Español - Institución deportiva y social con más de 65 años de historia. Fútbol, actividades sociales y culturales para toda la familia.">
     <meta name="keywords" content="club deportivo, fútbol, deportes, actividades sociales, socios">
     <title>Club Deportivo Español - Inicio</title>
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../img/escudo.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/estilos.css">
@@ -91,9 +91,10 @@
             transition: var(--transicion);
             box-shadow: 0 2px 8px rgba(0,0,0,0.06);
         }
+        /* Elimina el hover para que no cambie color */
         .tarjeta-enlace:hover {
-            background-color: var(--color-negro);
-            color: var(--color-amarillo);
+            background-color: var(--color-rojo);
+            color: var(--color-blanco);
         }
         @media (max-width: 800px) {
             .tarjetas-grid {
@@ -121,6 +122,28 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+        }
+
+        /* HERO SLIDER AJUSTES PARA QUE LAS FOTOS ENCAJEN */
+        .slider {
+            border-radius: 20px;
+            overflow: hidden;
+            /* Ajusta el alto si es necesario */
+            min-height: 380px;
+        }
+        .slide {
+            background-size: cover !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
+            min-height: 380px;
+            /* Si quieres bordes redondeados en mobile también */
+            border-radius: 20px;
+        }
+        @media (max-width: 800px) {
+            .slider, .slide {
+                border-radius: 12px;
+                min-height: 220px;
+            }
         }
     </style>
 </head>
@@ -165,22 +188,22 @@
                     </div>
                 </div>
             </div>
-            <div class="slide" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('img/hero/hero-2.jpg') no-repeat center center;">
+            <div class="slide" style="background: linear-gradient(rgba(81, 81, 81, 0.5), rgba(81, 81, 81, 0.5)), url('img/inicio/foto fubtol.jpg') no-repeat center center;">
                 <div class="contenedor">
                     <h1 class="titulo-principal">Fútbol</h1>
-                    <p class="subtitulo">Formación deportiva de calidad desde las primeras etapas</p>
+                    <p class="subtitulo">Fútbol profesional y formación deportiva de calidad desde las primeras etapas</p>
                     <div class="botones-hero">
                         <a href="futbol.html" class="boton boton-rojo">Conocé nuestros equipos</a>
                         <a href="socios.html" class="boton boton-celeste">Sumate al club</a>
                     </div>
                 </div>
             </div>
-            <div class="slide" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('img/hero/hero-3.jpg') no-repeat center center;">
+            <div class="slide" style="background: linear-gradient(rgba(81, 81, 81, 0.5), rgba(80, 80, 80, 0.5)), url('img/noticias/legislatura.jpg') no-repeat center center;">
                 <div class="contenedor">
-                    <h1 class="titulo-principal">Actividades</h1>
-                    <p class="subtitulo">Deportes, cultura y recreación para toda la familia</p>
+                    <h1 class="titulo-principal">Noticias</h1>
+                    <p class="subtitulo">Enterate de las últimas novedades</p>
                     <div class="botones-hero">
-                        <a href="sociales.html" class="boton boton-rojo">Descubrí más</a>
+                        <a href="noticias.html" class="boton boton-rojo">Descubrí más</a>
                         <a href="socios.html" class="boton boton-celeste">Hacete socio</a>
                     </div>
                 </div>
@@ -206,25 +229,25 @@
             <div class="tarjetas-grid">
                 <div class="tarjeta">
                     <div class="tarjeta-imagen">
-                        <img src="img/noticias/renovacion de instalaciones.jpg" alt="Noticia 1">
+                        <img src="img/noticias/SUM.jpg" alt="Noticia 1">
                     </div>
                     <div class="tarjeta-contenido">
-                        <span class="tarjeta-categoria">Institucional</span>
-                        <h3 class="tarjeta-titulo">Renovación de instalaciones</h3>
-                        <p class="tarjeta-texto">El club inauguró las nuevas instalaciones del gimnasio y la pileta climatizada.</p>
-                        <a href="noticias/nuevas-instalaciones.html" class="tarjeta-enlace">Leer más <i class="fas fa-arrow-right"></i></a>
+                        <span class="tarjeta-categoria">Socios</span>
+                        <h3 class="tarjeta-titulo">Nuevo SUM</h3>
+                        <p class="tarjeta-texto">La peña 30 de Junio inauguró el nuevo SUM debajo de la platea visitante</p>
+                        <a href="noticias/nuevo-SUM.html" class="tarjeta-enlace">Leer más <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 
                 <div class="tarjeta">
                     <div class="tarjeta-imagen">
-                        <img src="img/noticias/noticia1.jpg" alt="Noticia 2">
+                        <img src="img/noticias/legislatura.jpg" alt="Noticia 2">
                     </div>
                     <div class="tarjeta-contenido">
-                        <span class="tarjeta-categoria">Deportes</span>
-                        <h3 class="tarjeta-titulo">Victoria importante en el clásico</h3>
-                        <p class="tarjeta-texto">Nuestro equipo logró una victoria crucial en el clásico del fin de semana.</p>
-                        <a href="noticias/victoria-clasico.html" class="tarjeta-enlace">Leer más <i class="fas fa-arrow-right"></i></a>
+                        <span class="tarjeta-categoria">Institucional</span>
+                        <h3 class="tarjeta-titulo">Proyecto de restitución histórica</h3>
+                        <p class="tarjeta-texto">Se presentó un proyecto de ley para cuidar lo más preciado: nuestro predio</p>
+                        <a href="noticias/restitucion-historica.html" class="tarjeta-enlace">Leer más <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 
@@ -292,61 +315,48 @@
     <!-- Sección Sponsors -->
     <section class="seccion fondo-blanco">
         <div class="contenedor">
-            <h2 class="titulo-seccion">Nuestros Sponsors</h2>
+            <h2 class="titulo-seccion">Nuestros Main Sponsors</h2>
             <p class="descripcion-seccion">Empresas que confían en nosotros</p>
             
-            <div class="sponsors-carousel">
-                <div class="sponsors-wrapper">
-                    <div class="sponsor-card">
-                        <div class="sponsor-logo">
-                            <img src="img/sponsors/dsi constructora.png" alt="DSI Constructora">
-                        </div>
-                        <div class="sponsor-info">
-                            <h3>DSI Constructora</h3>
-                            <p>Construyendo el futuro junto al club desde 2018</p>
-                        </div>
+            <div class="sponsors-grid" style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
+                <div class="sponsor-card">
+                    <div class="sponsor-logo">
+                        <img src="img/sponsors/dsi constructora.png" alt="DSI Constructora">
                     </div>
-                    
-                    <div class="sponsor-card">
-                        <div class="sponsor-logo">
-                            <img src="img/sponsors/enerre logo.png" alt="Enerre">
-                        </div>
-                        <div class="sponsor-info">
-                            <h3>Enerre</h3>
-                            <p>Soluciones energéticas para el deporte y la comunidad</p>
-                        </div>
-                    </div>
-                    
-                    <div class="sponsor-card">
-                        <div class="sponsor-logo">
-                            <img src="img/sponsors/new light sport logo.png" alt="New Light Sport">
-                        </div>
-                        <div class="sponsor-info">
-                            <h3>New Light Sport</h3>
-                            <p>Equipamiento deportivo de alta calidad</p>
-                        </div>
-                    </div>
-                    
-                    <div class="sponsor-card">
-                        <div class="sponsor-logo">
-                            <img src="img/sponsors/san jorge logo.avif" alt="San Jorge">
-                        </div>
-                        <div class="sponsor-info">
-                            <h3>San Jorge</h3>
-                            <p>Apoyando el desarrollo deportivo desde sus inicios</p>
-                        </div>
+                    <div class="sponsor-info">
+                        <h3>DSI Constructora</h3>
+                        <p>Construyendo el futuro junto al club</p>
                     </div>
                 </div>
                 
-                <div class="carousel-controls">
-                    <button class="carousel-prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
-                    <div class="carousel-dots">
-                        <span class="dot active"></span>
-                        <span class="dot"></span>
-                        <span class="dot"></span>
-                        <span class="dot"></span>
+                <div class="sponsor-card">
+                    <div class="sponsor-logo">
+                        <img src="img/sponsors/enerre logo.png" alt="Enerre">
                     </div>
-                    <button class="carousel-next" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
+                    <div class="sponsor-info">
+                        <h3>Enerre</h3>
+                        <p>Vistiendo en todos los partidos a cada jugador del equipo</p>
+                    </div>
+                </div>
+                
+                <div class="sponsor-card">
+                    <div class="sponsor-logo">
+                        <img src="img/sponsors/new light sport logo.png" alt="New Light Sport">
+                    </div>
+                    <div class="sponsor-info">
+                        <h3>New Light Sport</h3>
+                        <p>Representación, análisis y valor para las inferiores de nuestra institución</p>
+                    </div>
+                </div>
+                
+                <div class="sponsor-card">
+                    <div class="sponsor-logo">
+                        <img src="img/sponsors/san jorge logo.avif" alt="San Jorge">
+                    </div>
+                    <div class="sponsor-info">
+                        <h3>San Jorge</h3>
+                        <p>Apoyando el desarrollo deportivo desde sus inicios</p>
+                    </div>
                 </div>
             </div>
             
