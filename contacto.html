@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/estilos.css">
     <style>
-        /* Variables CSS */
         :root {
             --color-rojo: #AA151B;
             --color-blanco: #ffffff;
@@ -26,35 +25,28 @@
             --borde-radio: 8px;
             --fuente-principal: 'Poppins', sans-serif;
         }
-
-        /* Reset y estilos base */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: var(--fuente-principal);
             line-height: 1.6;
             color: var(--color-negro);
             background-color: var(--color-blanco);
         }
-
-        /* Sección Contacto */
         .seccion-contacto {
             padding: 80px 0;
             background-color: var(--color-gris-claro);
-            margin-top: 80px; /* Espacio para el header fijo */
+            margin-top: 80px;
         }
-
         .contenedor {
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-
         .titulo-seccion {
             font-size: 2.5rem;
             text-align: center;
@@ -63,7 +55,6 @@
             padding-bottom: 15px;
             color: var(--color-negro);
         }
-
         .titulo-seccion::after {
             content: '';
             position: absolute;
@@ -74,44 +65,35 @@
             height: 4px;
             background-color: var(--color-rojo);
         }
-
-        /* Contenedor de dos columnas */
         .contenido-contacto {
             display: flex;
             flex-wrap: wrap;
             gap: 40px;
         }
-
-        /* Columna del formulario */
         .columna-formulario {
             flex: 1;
             min-width: 300px;
         }
-
         .contenedor-formulario {
             background-color: var(--color-blanco);
             padding: 30px;
             border-radius: var(--borde-radio);
             box-shadow: var(--sombra);
         }
-
         .formulario-contacto {
             display: flex;
             flex-direction: column;
             gap: 20px;
         }
-
         .campo {
             margin-bottom: 5px;
         }
-
         .campo label {
             display: block;
             margin-bottom: 8px;
             font-weight: 600;
             color: var(--color-negro);
         }
-
         .campo input,
         .campo textarea {
             width: 100%;
@@ -122,23 +104,19 @@
             font-family: var(--fuente-principal);
             transition: var(--transicion);
         }
-
         .campo input:focus,
         .campo textarea:focus {
             outline: none;
             border-color: var(--color-rojo);
             box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.2);
         }
-
         .campo textarea {
             min-height: 150px;
             resize: vertical;
         }
-
         .campo-boton {
             margin-top: 10px;
         }
-
         .boton-enviar {
             width: 100%;
             padding: 14px;
@@ -151,19 +129,15 @@
             cursor: pointer;
             transition: var(--transicion);
         }
-
         .boton-enviar:hover {
             background-color: #d32836;
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(230, 57, 70, 0.3);
         }
-
-        /* Columna de información de contacto */
         .columna-info {
             flex: 1;
             min-width: 300px;
         }
-
         .contenedor-info {
             background-color: var(--color-blanco);
             padding: 30px;
@@ -173,7 +147,6 @@
             display: flex;
             flex-direction: column;
         }
-
         .titulo-info {
             font-size: 1.5rem;
             margin-bottom: 20px;
@@ -181,7 +154,6 @@
             position: relative;
             padding-bottom: 10px;
         }
-
         .titulo-info::after {
             content: '';
             position: absolute;
@@ -191,44 +163,35 @@
             height: 3px;
             background-color: var(--color-rojo);
         }
-
         .lista-contacto {
             list-style: none;
             margin-bottom: 30px;
         }
-
         .item-contacto {
             display: flex;
             align-items: flex-start;
             margin-bottom: 15px;
         }
-
         .icono-contacto {
             color: var(--color-rojo);
             font-size: 1.2rem;
             margin-right: 15px;
             margin-top: 5px;
         }
-
         .texto-contacto {
             flex: 1;
         }
-
         .texto-contacto strong {
             display: block;
             margin-bottom: 5px;
         }
-
-        /* Redes sociales */
         .redes-sociales {
             margin-bottom: 30px;
         }
-
         .lista-redes {
             display: flex;
             gap: 15px;
         }
-
         .enlace-red {
             display: flex;
             align-items: center;
@@ -241,68 +204,54 @@
             text-decoration: none;
             transition: var(--transicion);
         }
-
         .enlace-red:hover {
             background-color: var(--color-rojo);
             color: var(--color-blanco);
             transform: translateY(-3px);
         }
-
-        /* Mapa */
         .contenedor-mapa {
             margin-top: auto;
             border-radius: var(--borde-radio);
             overflow: hidden;
             height: 250px;
         }
-
         .mapa {
             width: 100%;
             height: 100%;
             border: none;
         }
-
-        /* Responsive */
         @media (max-width: 768px) {
             .seccion-contacto {
                 padding: 60px 0;
             }
-            
             .titulo-seccion {
                 font-size: 2.2rem;
                 margin-bottom: 40px;
             }
-            
             .contenido-contacto {
                 flex-direction: column;
             }
-            
             .columna-formulario, 
             .columna-info {
                 width: 100%;
             }
-            
             .contenedor-info {
                 margin-top: 20px;
             }
         }
-
         @media (max-width: 576px) {
             .titulo-seccion {
                 font-size: 1.8rem;
             }
-            
             .contenedor-formulario,
             .contenedor-info {
                 padding: 20px;
             }
-            
             .campo input,
             .campo textarea,
             .boton-enviar {
                 padding: 10px 12px;
             }
-            
             .titulo-info {
                 font-size: 1.3rem;
             }
@@ -310,7 +259,6 @@
     </style>
 </head>
 <body>
-    <!-- Header con logo y menú de navegación fijo -->
     <header class="cabecera">
         <div class="contenedor">
             <div class="logo">
@@ -336,15 +284,12 @@
             </nav>
         </div>
     </header>
-
-    <!-- Hero de la página -->
     <section class="hero-seccion" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/placeholder.svg?height=500&width=1920');">
         <div class="contenedor">
             <h1 class="titulo-principal">Contacto</h1>
             <p class="subtitulo">Estamos para ayudarte</p>
         </div>
     </section>
-
     <section id="contacto" class="seccion-contacto">
         <div class="contenedor">
             <h2 class="titulo-seccion">Contacto</h2>
@@ -440,7 +385,6 @@
             </div>
         </div>
     </section>
-
      <footer class="pie">
         <div class="contenedor">
             <div class="columnas-footer">
@@ -504,44 +448,35 @@
                 </ul>
             </div>
         </div>
-    </footer><!-- Footer con redes sociales, mapa y contacto -->
+    </footer>
 
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  // Inicializás EmailJS con tu public key (solo si está disponible)
   const supabaseClient = supabase.createClient(
     'https://mnwcpllqxqkmdhxdossl.supabase.co',
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1ud2NwbGxxeHFrbWRoeGRvc3NsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc4MDA3MDYsImV4cCI6MjA2MzM3NjcwNn0.dBcLjWA09F7Lpy19SRYdb2bDXFfHscpF3vpHcz-f_F8' 
   );
   emailjs.init("Vzd_WPCIFPISk5GUn");
-
   const formulario = document.querySelector('.formulario-contacto');
-
   let feedback = document.getElementById('mensaje-contacto-feedback');
   if (!feedback) {
     feedback = document.createElement('div');
     feedback.id = 'mensaje-contacto-feedback';
     formulario.appendChild(feedback);
   }
-
   formulario.addEventListener('submit', async (e) => {
     e.preventDefault();
-
     const nombre   = document.getElementById('nombre-contacto').value.trim();
     const telefono = document.getElementById('telefono-contacto').value.trim();
     const email    = document.getElementById('correo-contacto').value.trim();
     const mensaje  = document.getElementById('mensaje-contacto').value.trim();
-
     if (!nombre || !telefono || !email || !mensaje) {
       feedback.innerText = '❌ Por favor, completa todos los campos.';
       feedback.style.color = 'darkred';
       return;
     }
-
     // 1) Guardás en Supabase
     const { error, data } = await supabaseClient
       .from('contacto')
@@ -551,14 +486,12 @@ document.addEventListener('DOMContentLoaded', () => {
         telefono: telefono, 
         mensaje: mensaje 
       }]);
-
     if (error) {
       feedback.innerText = '❌ Ocurrió un error al enviar tu mensaje: ' + (error.message || error.details || error.toString());
       feedback.style.color = 'darkred';
       console.error(error);
       return;
     }
-
     // 2) Enviar mail con EmailJS
     emailjs.sendForm('service_0k03ypc', 'template_7pasgtx', formulario)
       .then(() => {

@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/estilos.css">
     <style>
-        /* Variables CSS */
         :root {
             --color-rojo: #AA151B;
             --color-blanco: #ffffff;
@@ -23,38 +22,30 @@
             --borde-radio: 8px;
             --fuente-principal: 'Poppins', sans-serif;
         }
-
-        /* Reset y estilos base */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         html, body {
             font-family: 'Poppins', sans-serif;
         }
-
         body {
             line-height: 1.6;
             color: var(--color-negro);
             background-color: #ffffff;
         }
-
-        /* Sección Sponsors */
         .seccion-sponsors {
             padding: 80px 0;
             background-color: #ffffff;
-            margin-top: 80px; /* Espacio para el header fijo */
+            margin-top: 80px;
         }
-
         .contenedor {
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-
         .titulo-seccion {
             font-size: 2.5rem;
             text-align: center;
@@ -63,7 +54,6 @@
             padding-bottom: 15px;
             color: var(--color-negro);
         }
-
         .titulo-seccion::after {
             content: '';
             position: absolute;
@@ -74,7 +64,6 @@
             height: 4px;
             background-color: var(--color-rojo);
         }
-
         .texto-introduccion {
             font-size: 1.1rem;
             line-height: 1.6;
@@ -85,11 +74,9 @@
             margin-right: auto;
             color: var(--color-negro);
         }
-
         .categoria-sponsor {
             margin-bottom: 60px;
         }
-
         .subtitulo-seccion {
             font-size: 1.8rem;
             text-align: center;
@@ -98,7 +85,6 @@
             position: relative;
             padding-bottom: 10px;
         }
-
         .subtitulo-seccion::after {
             content: '';
             position: absolute;
@@ -109,15 +95,12 @@
             height: 3px;
             background-color: var(--color-rojo);
         }
-
-        /* Grilla de logos */
         .grilla-sponsors {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
             margin-bottom: 40px;
         }
-
         .logo-sponsor {
             background-color: #ffffff;
             padding: 30px;
@@ -129,11 +112,9 @@
             transition: var(--transicion);
             min-height: 200px;
         }
-
         .logo-sponsor:hover {
             transform: translateY(-10px);
         }
-
         .logo-sponsor img {
             max-width: 100%;
             height: auto;
@@ -141,44 +122,34 @@
             opacity: 1;
             transition: var(--transicion);
         }
-
         .logo-sponsor:hover img {
             filter: none;
             opacity: 1;
         }
-
-        /* Estilos específicos para cada categoría */
         .categoria-sponsor:nth-child(1) .logo-sponsor {
             background-color: #ffffff;
             padding: 40px;
             min-height: 250px;
         }
-
         .categoria-sponsor:nth-child(1) .logo-sponsor img {
             filter: none;
             opacity: 1;
             max-height: 200px;
         }
-
         .categoria-sponsor:nth-child(2) .logo-sponsor {
             background-color: #ffffff;
             min-height: 180px;
         }
-
         .categoria-sponsor:nth-child(2) .logo-sponsor img {
             max-height: 150px;
         }
-
         .categoria-sponsor:nth-child(3) .logo-sponsor {
             background-color: #ffffff;
             min-height: 150px;
         }
-
         .categoria-sponsor:nth-child(3) .logo-sponsor img {
             max-height: 120px;
         }
-
-        /* Sección "¿Querés ser parte?" */
         .seccion-unete {
             background-color: var(--color-rojo);
             padding: 50px;
@@ -212,8 +183,6 @@
             background-color: #fff3b0;
             color: var(--color-rojo);
         }
-
-        /* Responsive */
         @media (max-width: 992px) {
             .grilla-sponsors {
                 grid-template-columns: repeat(2, 1fr);
@@ -223,54 +192,43 @@
                 gap: 10px;
             }
         }
-
         @media (max-width: 768px) {
             .seccion-sponsors {
                 padding: 60px 0;
             }
-            
             .titulo-seccion {
                 font-size: 2.2rem;
             }
-            
             .subtitulo {
                 font-size: 1.8rem;
             }
-            
             .seccion-unete {
                 padding: 30px;
             }
         }
-
         @media (max-width: 576px) {
             .titulo-seccion {
                 font-size: 1.8rem;
             }
-            
             .texto-introduccion,
             .texto-persuasivo {
                 font-size: 1rem;
             }
-            
             .grilla-sponsors {
                 grid-template-columns: 1fr;
             }
             .categoria-sponsor:nth-child(3) .grilla-sponsors {
                 gap: 6px;
             }
-            
             .logo-sponsor {
                 padding: 20px;
             }
-            
             .boton-cta {
                 display: block;
                 width: 100%;
                 text-align: center;
             }
         }
-
-        /* Nuevo diseño para la franja de auspiciantes */
         .grilla-auspiciantes {
             background: #ffffff;
             border-radius: 24px;
@@ -323,18 +281,15 @@
                 padding: 4px 4px;
             }
         }
-        /* Ocultar cajas individuales de auspiciantes */
         .categoria-sponsor .grilla-sponsors.auspiciantes-cajas .logo-sponsor {
             display: none;
         }
-
         .cabecera .contenedor {
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-
         .logo-apoyo {
             max-width: 140px;
             max-height: 90px;
@@ -351,7 +306,6 @@
     </style>
 </head>
 <body>
-    <!-- Header con logo y menú de navegación fijo -->
     <header class="cabecera">
         <div class="contenedor">
             <div class="logo">
@@ -377,22 +331,16 @@
             </nav>
         </div>
     </header>
-
-    <!-- Hero de la página -->
     <section class="hero-seccion" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/placeholder.svg?height=500&width=1920');">
         <div class="contenedor">
             <h1 class="titulo-principal">Sponsors</h1>
             <p class="subtitulo">Empresas que nos acompañan en nuestro crecimiento</p>
         </div>
     </section>
-
-    <!-- Sección Sponsors -->
     <section class="seccion-sponsors">
         <div class="contenedor">
             <h1 class="titulo-seccion">Nuestros Sponsors</h1>
             <p class="texto-introduccion">Empresas e instituciones que confían en nosotros y nos acompañan en nuestro crecimiento</p>
-
-            <!-- Main Sponsor -->
             <div class="categoria-sponsor">
                 <h2 class="subtitulo-seccion">Main Sponsor</h2>
                 <div class="grilla-sponsors">
@@ -410,8 +358,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Auspiciantes -->
             <div class="categoria-sponsor">
                 <h2 class="subtitulo-seccion">Auspiciantes</h2>
                 <div class="grilla-auspiciantes">
@@ -425,8 +371,6 @@
                     <img src="img/sponsors/auspiciantes/graphic zone.png" alt="Auspiciante 8">
                 </div>
             </div>
-
-            <!-- Nos Apoyan -->
             <div class="categoria-sponsor">
                 <h2 class="subtitulo-seccion">Nos Apoyan</h2>
                 <div class="grilla-sponsors">
@@ -444,8 +388,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Sección "¿Querés ser parte?" -->
             <div class="seccion-unete">
                 <h2 class="subtitulo">¿Querés ser parte?</h2>
                 <p class="texto-persuasivo">Sumate a nuestro club como sponsor y aprovechá los beneficios de estar asociado a una institución con más de 65 años de historia. Ofrecemos diferentes niveles de participación y visibilidad para tu marca.</p>
@@ -476,7 +418,6 @@
                         </a>
                     </div>
                 </div>
-                
                 <div class="columna-footer">
                     <h3>Enlaces rápidos</h3>
                     <ul class="enlaces-footer">
@@ -489,7 +430,6 @@
                         <li><a href="contacto.html">Contacto</a></li>
                     </ul>
                 </div>
-                
                 <div class="columna-footer">
                     <h3>Contacto</h3>
                     <ul class="info-contacto">
@@ -499,7 +439,6 @@
                         <li><i class="fas fa-clock"></i> Lun-Vie: 8:00 - 22:00, Sáb-Dom: 9:00 - 20:00</li>
                     </ul>
                 </div>
-                
                 <div class="columna-footer">
                     <h3>Ubicación</h3>
                     <div style="border-radius: var(--borde-radio); overflow: hidden; height: 200px;">
@@ -507,7 +446,6 @@
                     </div>
                 </div>
             </div>
-            
             <div class="copyright">
                 <p>&copy; 2025 Club Deportivo Español. Todos los derechos reservados.</p>
                 <ul class="enlaces-legales">
@@ -517,6 +455,5 @@
             </div>
         </div>
     </footer>
-
 </body>
 </html>

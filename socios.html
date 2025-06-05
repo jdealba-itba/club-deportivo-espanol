@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/estilos.css">
     <style>
-        /* Estilos específicos para la página de hacete socio */
         :root {
             --color-rojo-espana: #AA151B;
             --color-blanco: #ffffff;
@@ -25,44 +24,36 @@
             --borde-radio: 8px;
             --fuente-principal: 'Poppins', sans-serif;
         }
-
         html, body {
             font-family: 'Poppins', sans-serif;
         }
-
         body {
             font-family: var(--fuente-principal);
         }
-
         .titulo-principal {
             font-family: var(--fuente-principal);
             font-weight: 700;
         }
-
         .subtitulo {
             font-family: var(--fuente-principal);
             font-weight: 300;
             color: var(--color-blanco);
         }
-
         .titulo-seccion {
             font-family: var(--fuente-principal);
             font-weight: 700;
             color: var(--color-negro);
         }
-
         .texto-introduccion {
             font-family: var(--fuente-principal);
             font-weight: 400;
         }
-
         .texto-beneficio {
             font-family: var(--fuente-principal);
             font-weight: 400;
             font-size: 1.1rem;
             color: var(--color-blanco);
         }
-
         .testimonio p {
             font-family: var(--fuente-principal);
             font-weight: 300;
@@ -72,18 +63,15 @@
             font-size: 1rem;
             line-height: 1.6;
         }
-
         .testimonio cite {
             font-family: var(--fuente-principal);
             font-weight: 600;
         }
-
         .campo label {
             font-family: var(--fuente-principal);
             font-weight: 600;
             color: var(--color-blanco);
         }
-
         .campo input,
         .campo select {
             font-family: var(--fuente-principal);
@@ -96,26 +84,22 @@
             color: var(--color-negro);
             transition: var(--transicion);
         }
-
         .boton-asociarme {
             font-family: var(--fuente-principal);
             font-weight: 600;
         }
-
         .seccion-socio {
             padding: 80px 0;
             background-color: var(--color-blanco);
             margin-top: 80px;
             color: var(--color-negro);
         }
-
         .contenido-socio {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
             margin-top: 40px;
         }
-
         .columna-beneficios {
             background-color: var(--color-rojo-espana);
             padding: 30px;
@@ -124,12 +108,10 @@
             color: var(--color-blanco);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
-
         .lista-beneficios {
             list-style: none;
             margin: 20px 0;
         }
-
         .beneficio {
             display: flex;
             align-items: center;
@@ -141,22 +123,18 @@
             border: 1px solid var(--color-rojo-espana);
             transition: all 0.3s ease;
         }
-
         .beneficio:hover {
             background-color: rgba(255, 255, 255, 0.15);
             transform: translateX(5px);
         }
-
         .icono-beneficio {
             font-size: 1.5rem;
             margin-right: 15px;
             color: #FFC107;
         }
-
         .seccion-testimonios {
             margin-top: 40px;
         }
-
         .testimonio {
             background-color: var(--color-rojo-espana);
             padding: 20px;
@@ -164,23 +142,19 @@
             margin-bottom: 20px;
             position: relative;
             color: var(--color-rojo-espana);
-
         }
-
         .testimonio cite {
             font-weight: 600;
             color: var(--color-amarillo);
             display: block;
             margin-top: 10px;
         }
-
         .texto-introduccion {
             color: var(--color-negro);
             font-size: 1.1rem;
             line-height: 1.6;
             margin-bottom: 30px;
         }
-
         .contenedor-formulario {
             background-color: var(--color-rojo-espana);
             padding: 30px;
@@ -188,34 +162,28 @@
             box-shadow: var(--sombra);
             color: var(--color-blanco);
         }
-
         .formulario-socio {
             display: flex;
             flex-direction: column;
             gap: 20px;
         }
-
         .campo {
             display: flex;
             flex-direction: column;
             gap: 5px;
         }
-
         .campo input::placeholder {
             color: rgba(0, 0, 0, 0.5);
         }
-
         .campo input:focus,
         .campo select:focus {
             outline: none;
             border-color: var(--color-blanco);
         }
-
         .campo select option {
             background-color: var(--color-blanco);
             color: var(--color-negro);
         }
-
         .boton-asociarme {
             background-color:var(--color-negro);
             color: var(--color-blanco);
@@ -227,31 +195,26 @@
             width: 100%;
             transition: all 0.3s ease;
         }
-
         .boton-asociarme:hover {
             background-color: var(--color-negro);
             color: var(--color-amarillo);
             border-color: var(--color-negro);
         }
-
         .cabecera .contenedor {
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-
         @media (max-width: 992px) {
             .contenido-socio {
                 grid-template-columns: 1fr;
             }
         }
-
         @media (max-width: 768px) {
             .seccion-socio {
                 padding: 60px 0;
             }
-
             .columna-beneficios,
             .contenedor-formulario {
                 padding: 20px;
@@ -260,7 +223,6 @@
     </style>
 </head>
 <body>
-    <!-- Header con logo y menú de navegación fijo -->
     <header class="cabecera">
         <div class="contenedor">
             <div class="logo">
@@ -286,15 +248,12 @@
             </nav>
         </div>
     </header>
-
-    <!-- Hero de la página -->
     <section class="hero-interno" style="background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/placeholder.svg?height=500&width=1920') no-repeat center center;">
         <div class="contenedor">
             <h1 class="titulo-principal">Hacete Socio</h1>
             <p class="subtitulo">Formá parte de nuestra gran familia</p>
         </div>
     </section>
-
     <section id="hacete-socio" class="seccion-socio">
         <div class="contenedor">
             <h2 class="titulo-seccion">Hacete Socio</h2>
@@ -326,7 +285,6 @@
                         </li>
                     </ul>
                     
-                    <!-- Sustituir testimonios por los dos planes -->
                     <div class="seccion-planes" style="margin-top: 40px;">
                         <h3 class="subtitulo">Planes</h3>
                         <div style="display: flex; gap: 20px; flex-wrap: wrap;">
@@ -456,26 +414,15 @@
             </div>
         </div>
     </footer>
-
-<!-- 1) Librerías necesarias -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-
-<!-- 2) Script integrado -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  // Supabase
   const supabaseClient = supabase.createClient(
     'https://mnwcpllqxqkmdhxdossl.supabase.co',
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1ud2NwbGxxeHFrbWRoeGRvc3NsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc4MDA3MDYsImV4cCI6MjA2MzM3NjcwNn0.dBcLjWA09F7Lpy19SRYdb2bDXFfHscpF3vpHcz-f_F8'
   );
-
-  // EmailJS
   emailjs.init('Vzd_WPCIFPISk5GUn');
-
   const formulario = document.querySelector('.formulario-socio');
-
-  // Crear div de mensaje si no existe
   let mensaje = document.getElementById('mensaje');
   if (!mensaje) {
     mensaje = document.createElement('div');
@@ -484,25 +431,18 @@ document.addEventListener('DOMContentLoaded', () => {
     mensaje.style.fontWeight = '600';
     formulario.appendChild(mensaje);
   }
-
   formulario.addEventListener('submit', async (e) => {
     e.preventDefault();
-
-    // Obtener valores
     const nombre       = document.getElementById('nombre').value.trim();
     const dni          = document.getElementById('dni').value.trim();
     const email        = document.getElementById('email').value.trim();
     const categoria    = document.getElementById('categoria').value;
     const metodo_pago  = document.getElementById('pago').value;
-
-    // Validación
     if (!nombre || !dni || !email || !categoria || !metodo_pago) {
       mensaje.innerText = '❌ Completa todos los campos.';
       mensaje.style.color = 'darkred';
       return;
     }
-
-    // Guardar en Supabase
     const { data, error } = await supabaseClient
       .from('socios')
       .insert([{
@@ -512,15 +452,12 @@ document.addEventListener('DOMContentLoaded', () => {
         categoria: categoria,
         metodo_pago: metodo_pago
       }]);
-
     if (error) {
       mensaje.innerText = '❌ Error al guardar: ' + error.message;
       mensaje.style.color = 'darkred';
       console.error(error);
       return;
     }
-
-    // Enviar correo con EmailJS
     emailjs.sendForm('service_0k03ypc', 'template_nrw3zqd', formulario)
       .then(() => {
         mensaje.innerText = '✅ ¡Socio registrado con éxito! Te enviamos un correo con los pasos a seguir.';
@@ -535,11 +472,5 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 </script>
-
-
-
-</body>
-</html>
-
 </body>
 </html>

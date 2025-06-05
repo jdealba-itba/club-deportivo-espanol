@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/estilos.css">
     <style>
-        /* Variables CSS */
         :root {
             --color-rojo: #AA151B;
             --color-blanco: #ffffff;
@@ -23,28 +22,23 @@
             --borde-radio: 8px;
             --fuente-principal: 'Poppins', sans-serif;
         }
-
-        /* Sección Noticias */
         .seccion-noticias {
             padding: 80px 0;
             background-color: var(--color-gris-claro);
             margin-top: 80px;
         }
-
         .contenedor {
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-
         .grilla-noticias {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             margin-top: 40px;
         }
-
         .noticia {
             background-color: var(--color-blanco);
             border-radius: var(--borde-radio);
@@ -52,40 +46,33 @@
             box-shadow: var(--sombra);
             transition: var(--transicion);
         }
-
         .noticia:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
-
         .imagen-noticia {
             width: 100%;
             height: 200px;
             object-fit: cover;
         }
-
         .contenido-noticia {
             padding: 20px;
         }
-
         .fecha-noticia {
             color: var(--color-gris-oscuro);
             font-size: 0.9rem;
             margin-bottom: 10px;
         }
-
         .titulo-noticia {
             font-size: 1.3rem;
             margin-bottom: 10px;
             color: var(--color-negro);
         }
-
         .descripcion-noticia {
             color: var(--color-gris-oscuro);
             margin-bottom: 20px;
             line-height: 1.6;
         }
-
         .boton-leer-mas {
             display: inline-block;
             background-color: var(--color-rojo);
@@ -96,108 +83,85 @@
             font-weight: 500;
             transition: var(--transicion);
         }
-        /* Elimina el hover para que no cambie color */
         .boton-leer-mas:hover {
             background-color: var(--color-rojo);
             color: var(--color-blanco);
         }
-
-        /* Responsive */
         @media (max-width: 768px) {
             .grilla-noticias {
                 grid-template-columns: 1fr;
             }
         }
-
-        /* Forzar uso de Poppins */
         html, body {
             font-family: 'Poppins', sans-serif;
         }
-
-        /* Una vez más, se actualiza el contenedor del header */
         .cabecera .contenedor {
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-
-        /* Footer */
         .pie {
             background-color: var(--color-negro);
             color: var(--color-blanco);
             padding: 40px 0;
             margin-top: 80px;
         }
-
         .columnas-footer {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
         }
-
         .logo-footer {
             margin-bottom: 20px;
         }
-
         .redes-sociales-footer {
             margin-top: 10px;
         }
-
         .redes-sociales-footer a {
             color: var(--color-blanco);
             margin-right: 15px;
             font-size: 1.2rem;
             transition: var(--transicion);
         }
-
         .redes-sociales-footer a:hover {
             color: var(--color-rojo);
         }
-
         .enlaces-footer {
             list-style: none;
             padding: 0;
             margin: 0;
         }
-
         .enlaces-footer li {
             margin-bottom: 10px;
         }
-
         .enlaces-footer a {
             color: var(--color-blanco);
             text-decoration: none;
             transition: var(--transicion);
         }
-
         .enlaces-footer a:hover {
             color: var(--color-rojo);
         }
-
         .info-contacto {
             list-style: none;
             padding: 0;
             margin: 0;
         }
-
         .info-contacto li {
             margin-bottom: 10px;
             display: flex;
             align-items: center;
         }
-
         .info-contacto i {
             margin-right: 10px;
             color: var(--color-rojo);
         }
-
         .copyright {
             text-align: center;
             margin-top: 40px;
             font-size: 0.9rem;
         }
-
         .enlaces-legales {
             list-style: none;
             padding: 0;
@@ -206,30 +170,23 @@
             justify-content: center;
             flex-wrap: wrap;
         }
-
         .enlaces-legales li {
             margin: 0 10px;
         }
-
         .enlaces-legales a {
             color: var(--color-blanco);
             text-decoration: none;
             transition: var(--transicion);
         }
-
         .enlaces-legales a:hover {
             color: var(--color-rojo);
         }
-
-        /* Mapa */
         .mapa-footer {
             border-radius: var(--borde-radio);
             overflow: hidden;
             height: 200px;
             margin-top: 10px;
         }
-
-        /* Responsive */
         @media (max-width: 768px) {
             .columnas-footer {
                 grid-template-columns: 1fr;
@@ -238,7 +195,6 @@
     </style>
 </head>
 <body>
-    <!-- Header con logo y menú de navegación fijo -->
     <header class="cabecera">
         <div class="contenedor">
             <div class="logo">
@@ -264,16 +220,12 @@
             </nav>
         </div>
     </header>
-
-    <!-- Hero de la página -->
     <section class="hero-seccion" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/placeholder.svg?height=500&width=1920');">
         <div class="contenedor">
             <h1 class="titulo-principal">Noticias</h1>
             <p class="subtitulo">Mantente al día con las últimas novedades del club</p>
         </div>
     </section>
-
-    <!-- Sección Noticias -->
     <section class="seccion-noticias">
         <div class="contenedor">
             <div class="grilla-noticias">
@@ -287,7 +239,6 @@
                         <a href="noticias/restitucion-historica.html" class="boton-leer-mas">Leer más</a>
                     </div>
                 </article>
-
                 <!-- Noticia 2 -->
                 <article class="noticia">
                     <img src="img/noticias/nuevo sponsor.jpg" alt="Noticia 2" class="imagen-noticia">
@@ -298,7 +249,6 @@
                         <a href="noticias/nuevo-sponsor.html" class="boton-leer-mas">Leer más</a>
                     </div>
                 </article>
-
                 <!-- Noticia 3 --> 
                 <article class="noticia">
                     <img src="img/noticias/SUM.jpg" alt="Noticia 3" class="imagen-noticia">
@@ -313,8 +263,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Footer -->
     <footer class="pie">
         <div class="contenedor">
             <div class="columnas-footer">

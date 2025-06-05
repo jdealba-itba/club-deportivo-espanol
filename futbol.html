@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/estilos.css">
     <style>
-        /* Variables CSS */
         :root {
             --color-rojo: #AA151B;
             --color-blanco: #ffffff;
@@ -202,211 +201,7 @@
             text-align: right;
         }
 
-        /* Estilos para la sección de próximos partidos */
-        .proximos-partidos {
-            padding: 80px 0;
-            background-color: var(--color-gris);
-        }
-
-        .proximos-partidos h2 {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 50px;
-            position: relative;
-            padding-bottom: 15px;
-            color: var(--color-negro);
-        }
-
-        .proximos-partidos h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background-color: var(--color-rojo);
-        }
-
-        .partido-api {
-            background-color: var(--color-blanco);
-            border-radius: var(--borde-radio);
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: var(--sombra);
-            transition: var(--transicion);
-        }
-
-        .partido-api:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .partido-api-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 15px;
-            color: var(--color-rojo);
-            font-weight: 600;
-        }
-
-        .partido-api-equipos {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 15px;
-        }
-
-        .partido-api-equipo {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 40%;
-        }
-
-        .partido-api-logo {
-            width: 60px;
-            height: 60px;
-            margin-bottom: 10px;
-        }
-
-        .partido-api-nombre {
-            text-align: center;
-            font-weight: 600;
-        }
-
-        .partido-api-vs {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--color-negro);
-        }
-
-        .partido-api-info {
-            display: flex;
-            justify-content: space-around;
-            padding-top: 15px;
-            border-top: 1px solid var(--color-gris);
-        }
-
-        .partido-api-info-item {
-            display: flex;
-            align-items: center;
-        }
-
-        .partido-api-info-item i {
-            color: var(--color-rojo);
-            margin-right: 5px;
-        }
-
-        /* Estilos para la sección de últimos resultados */
-        .ultimos-resultados {
-            padding: 80px 0;
-            background-color: var(--color-blanco);
-        }
-
-        .ultimos-resultados h2 {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 50px;
-            position: relative;
-            padding-bottom: 15px;
-            color: var(--color-negro);
-        }
-
-        .ultimos-resultados h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background-color: var(--color-rojo);
-        }
-
-        .resultado-api {
-            background-color: var(--color-gris);
-            border-radius: var(--borde-radio);
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: var(--sombra);
-            transition: var(--transicion);
-        }
-
-        .resultado-api:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .resultado-api-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 15px;
-            color: var(--color-rojo);
-            font-weight: 600;
-        }
-
-        .resultado-api-equipos {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 15px;
-        }
-
-        .resultado-api-equipo {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 40%;
-        }
-
-        .resultado-api-logo {
-            width: 60px;
-            height: 60px;
-            margin-bottom: 10px;
-        }
-
-        .resultado-api-nombre {
-            text-align: center;
-            font-weight: 600;
-        }
-
-        .resultado-api-score {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .resultado-api-marcador {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--color-negro);
-            margin-bottom: 5px;
-        }
-
-        .resultado-api-estado {
-            font-size: 0.9rem;
-            color: var(--color-gris-oscuro);
-        }
-
-        .resultado-api-info {
-            display: flex;
-            justify-content: space-around;
-            padding-top: 15px;
-            border-top: 1px solid var(--color-blanco);
-        }
-
-        .resultado-api-info-item {
-            display: flex;
-            align-items: center;
-        }
-
-        .resultado-api-info-item i {
-            color: var(--color-rojo);
-            margin-right: 5px;
-        }
-
+        /* Elimino estilos de .proximos-partidos, .partido-api, .ultimos-resultados y relacionados porque ya no existen en el HTML */
         .cargando {
             text-align: center;
             padding: 20px;
@@ -494,7 +289,6 @@
     </style>
 </head>
 <body>
-    <!-- Header con logo y menú de navegación fijo -->
     <header class="cabecera">
         <div class="contenedor">
             <div class="logo">
@@ -520,16 +314,12 @@
             </nav>
         </div>
     </header>
-
-    <!-- Hero de la página -->
     <section class="hero-seccion" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('img/futbol/hero-section.png');">
         <div class="contenedor">
             <h1 class="titulo-principal">Fútbol</h1>
             <p class="subtitulo">Formación deportiva de calidad desde las primeras etapas</p>
         </div>
     </section>
-
-    <!-- Sección Primer Equipo -->
     <section class="seccion fondo-blanco">
         <div class="contenedor">
             <h2 class="titulo-seccion">Primer Equipo</h2>
@@ -551,28 +341,6 @@
             
 
     </section>
-
-    <!-- Sección Próximos Partidos (API) -->
-    <section class="proximos-partidos">
-        <div class="contenedor">
-            <h2 class="titulo-seccion">Próximos partidos</h2>
-            <div id="proximos-partidos">
-                <p class="cargando">Cargando próximos partidos...</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección Últimos Resultados (API) -->
-    <section class="ultimos-resultados">
-        <div class="contenedor">
-            <h2 class="titulo-seccion">Últimos resultados</h2>
-            <div id="ultimos-resultados">
-                <p class="cargando">Cargando últimos resultados...</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección Divisiones Inferiores -->
     <section class="seccion fondo-gris">
         <div class="contenedor">
             <h2 class="titulo-seccion">Divisiones Inferiores</h2>
@@ -621,8 +389,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Sección Escuela de Fútbol -->
     <section class="seccion fondo-blanco">
         <div class="contenedor">
             <h2 class="titulo-seccion">Fútbol 5</h2>
@@ -694,8 +460,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Sección Staff Técnico -->
     <section class="seccion fondo-gris">
         <div class="contenedor">
             <h2 class="titulo-seccion">Staff Técnico</h2>
@@ -748,8 +512,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Footer con redes sociales, mapa y contacto -->
     <footer class="pie">
         <div class="contenedor">
             <div class="columnas-footer">
@@ -814,10 +576,6 @@
             </div>
         </div>
     </footer>
-
-    <!-- Scripts -->
-    <script src="js/scripts.js"></script>
-    <script src="js/partidos.js"></script>
-    <script src="js/resultados.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
