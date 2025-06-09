@@ -409,22 +409,19 @@
                     <div class="contenedor-formulario fondo-rojo">
                         <h3 class="subtitulo">Formulario de Alta</h3>
                         
-                        <form class="formulario-socio">
+                        <form class="formulario-socio" id="formulario-socio">
                             <div class="campo">
                                 <label for="nombre">Nombre completo</label>
                                 <input type="text" id="nombre" name="nombre" required>
                             </div>
-                            
                             <div class="campo">
                                 <label for="dni">DNI</label>
                                 <input type="number" id="dni" name="dni" required>
                             </div>
-                            
                             <div class="campo">
                                 <label for="email">Email</label>
                                 <input type="email" id="email" name="email" required>
                             </div>
-                            
                             <div class="campo">
                                 <label for="categoria">Categoría</label>
                                 <select id="categoria" name="categoria" required>
@@ -433,17 +430,15 @@
                                     <option value="menor">Menor</option>
                                 </select>
                             </div>
-                            
                             <div class="campo">
                                 <label for="pago">Método de pago</label>
-                                <select id="pago" name="pago" required>
+                                <select id="pago" name="metodo_pago" required>
                                     <option value="">Seleccionar método</option>
                                     <option value="transferencia">Transferencia</option>
                                     <option value="tarjeta">Tarjeta</option>
                                     <option value="efectivo">Efectivo</option>
                                 </select>
                             </div>
-                            
                             <div class="campo-boton">
                                 <button type="submit" class="boton-asociarme">Asociarme</button>
                             </div>
@@ -523,9 +518,10 @@
 document.addEventListener('DOMContentLoaded', () => {
   const supabaseClient = supabase.createClient(
     'https://mnwcpllqxqkmdhxdossl.supabase.co',
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1ud2NwbGxxeHFrbWRoeGRvc3NsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc4MDA3MDYsImV4cCI6MjA2MzM3NjcwNn0.dBcLjWA09F7Lpy19SRYdb2bDXFfHscpF3vpHcz-f_F8'
   );
   emailjs.init('Vzd_WPCIFPISk5GUn');
-  const formulario = document.querySelector('.formulario-socio');
+  const formulario = document.getElementById('formulario-socio');
   let mensaje = document.getElementById('mensaje');
   if (!mensaje) {
     mensaje = document.createElement('div');
