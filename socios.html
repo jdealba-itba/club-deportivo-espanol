@@ -541,11 +541,59 @@ document.addEventListener('DOMContentLoaded', () => {
     const email        = document.getElementById('email').value.trim();
     const categoria    = document.getElementById('categoria').value;
     const metodo_pago  = document.getElementById('pago').value;
-    if (!nombre || !dni || !email || !categoria || !metodo_pago) {
-      mensaje.innerText = '❌ Completa todos los campos.';
+    // Validación de nombre: solo letras, espacios y mínimo 3 caracteres
+    if (!/^[A-Za-zÁÉÍÓÚáéíóúÑñ ]{3,}$/.test(nombre)) {
+      mensaje.innerText = '❌ Ingresá un nombre válido (solo letras y mínimo 3 caracteres).';
       mensaje.style.color = 'darkred';
       return;
     }
+    // Validación de DNI: solo números, 7 a 9 dígitos
+    if (!/^\d{7,9}$/.test(dni)) {
+      mensaje.innerText = '❌ Ingresá un DNI válido (7 a 9 dígitos numéricos).';
+      mensaje.style.color = 'darkred';
+      return;
+    }
+    // Validación de email: formato correcto
+    if (!/^\S+@\S+\.\S+$/.test(email)) {
+      mensaje.innerText = '❌ Ingresá un email válido.';
+      mensaje.style.color = 'darkred';
+      return;
+    }
+    if (!categoria || !metodo_pago) {
+      mensaje.innerText = '❌ Seleccioná una categoría y método de pago.';
+      mensaje.style.color = 'darkred';
+      return;
+    }
+    // Deshabilitar botón para evitar doble submit
+    const boton = formulario.querySelector('.boton-asociarme');
+    boton.disabled = true;
+    boton.innerText = 'Enviando...';
+    // Validar que el DNI o email no estén ya registrados
+    let { data: dniExistente } = await supabaseClient
+      .from('socios')
+      .select('dni')
+      .eq('dni', dni)
+      .maybeSingle();
+    if (dniExistente) {
+      mensaje.innerText = '❌ Ya existe un socio registrado con ese DNI.';
+      mensaje.style.color = 'darkred';
+      boton.disabled = false;
+      boton.innerText = 'Asociarme';
+      return;
+    }
+    let { data: emailExistente } = await supabaseClient
+      .from('socios')
+      .select('email')
+      .eq('email', email)
+      .maybeSingle();
+    if (emailExistente) {
+      mensaje.innerText = '❌ Ya existe un socio registrado con ese email.';
+      mensaje.style.color = 'darkred';
+      boton.disabled = false;
+      boton.innerText = 'Asociarme';
+      return;
+    }
+    // Insertar nuevo socio
     const { data, error } = await supabaseClient
       .from('socios')
       .insert([{
@@ -558,6 +606,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (error) {
       mensaje.innerText = '❌ Error al guardar: ' + error.message;
       mensaje.style.color = 'darkred';
+      boton.disabled = false;
+      boton.innerText = 'Asociarme';
       console.error(error);
       return;
     }
@@ -566,10 +616,14 @@ document.addEventListener('DOMContentLoaded', () => {
         mensaje.innerText = '✅ ¡Socio registrado con éxito! Te enviamos un correo con los pasos a seguir.';
         mensaje.style.color = 'green';
         formulario.reset();
+        boton.disabled = false;
+        boton.innerText = 'Asociarme';
       })
       .catch((err) => {
         mensaje.innerText = '⚠️ Socio registrado, pero no se pudo enviar el correo.';
         mensaje.style.color = 'darkorange';
+        boton.disabled = false;
+        boton.innerText = 'Asociarme';
         console.error(err);
       });
   });

@@ -551,12 +551,35 @@ document.addEventListener('DOMContentLoaded', () => {
     const telefono = document.getElementById('telefono-contacto').value.trim();
     const email    = document.getElementById('correo-contacto').value.trim();
     const mensaje  = document.getElementById('mensaje-contacto').value.trim();
-    if (!nombre || !telefono || !email || !mensaje) {
-      feedback.innerText = '❌ Por favor, completa todos los campos.';
+    // Validación de nombre: solo letras, espacios y mínimo 3 caracteres
+    if (!/^[A-Za-zÁÉÍÓÚáéíóúÑñ ]{3,}$/.test(nombre)) {
+      feedback.innerText = '❌ Ingresá un nombre válido (solo letras y mínimo 3 caracteres).';
       feedback.style.color = 'darkred';
       return;
     }
-    // 1) Guardás en Supabase
+    // Validación de teléfono: 7-15 dígitos, solo números y símbolos válidos
+    if (!/^[0-9+\s()-]{7,15}$/.test(telefono)) {
+      feedback.innerText = '❌ Ingresá un teléfono válido (7 a 15 dígitos, solo números y símbolos + - ( )).';
+      feedback.style.color = 'darkred';
+      return;
+    }
+    // Validación de email: formato correcto
+    if (!/^\S+@\S+\.\S+$/.test(email)) {
+      feedback.innerText = '❌ Ingresá un correo electrónico válido.';
+      feedback.style.color = 'darkred';
+      return;
+    }
+    // Validación de mensaje: mínimo 10 caracteres
+    if (mensaje.length < 10) {
+      feedback.innerText = '❌ El mensaje debe tener al menos 10 caracteres.';
+      feedback.style.color = 'darkred';
+      return;
+    }
+    // Deshabilitar botón para evitar doble submit
+    const boton = formulario.querySelector('.boton-enviar');
+    boton.disabled = true;
+    boton.innerText = 'Enviando...';
+    // Guardar en Supabase
     const { error, data } = await supabaseClient
       .from('contacto')
       .insert([{ 
@@ -568,19 +591,25 @@ document.addEventListener('DOMContentLoaded', () => {
     if (error) {
       feedback.innerText = '❌ Ocurrió un error al enviar tu mensaje: ' + (error.message || error.details || error.toString());
       feedback.style.color = 'darkred';
+      boton.disabled = false;
+      boton.innerText = 'Enviar consulta';
       console.error(error);
       return;
     }
-    // 2) Enviar mail con EmailJS
+    // Enviar mail con EmailJS
     emailjs.sendForm('service_0k03ypc', 'template_7pasgtx', formulario)
       .then(() => {
         feedback.innerText = '✅ ¡Mensaje registrado con éxito! Te enviamos un correo con los pasos a seguir.';
         feedback.style.color = 'green';
         formulario.reset();
+        boton.disabled = false;
+        boton.innerText = 'Enviar consulta';
       })
       .catch((err) => {
-        feedback.innerText = '⚠️ Socio registrado, pero no se pudo enviar el correo.';
+        feedback.innerText = '⚠️ Mensaje registrado, pero no se pudo enviar el correo.';
         feedback.style.color = 'darkorange';
+        boton.disabled = false;
+        boton.innerText = 'Enviar consulta';
         console.error(err);
       });
   });
