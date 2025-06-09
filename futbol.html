@@ -286,6 +286,113 @@
                 align-items: center;
             }
         }
+
+        /* Mejoras para móviles */
+    @media (max-width: 600px) {
+      .equipo-presentacion {
+        flex-direction: column !important;
+        gap: 18px !important;
+      }
+      .equipo-presentacion > div {
+        min-width: 0 !important;
+        width: 100% !important;
+      }
+      .categorias-lista {
+        grid-template-columns: 1fr !important;
+        gap: 14px !important;
+        margin-bottom: 18px !important;
+      }
+      .categoria-imagen {
+        height: 120px !important;
+      }
+      .info-categoria {
+        padding: 10px 6px 0 6px !important;
+      }
+      .escuela-grid {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+        margin-bottom: 18px !important;
+      }
+      .equipo-imagen {
+        height: 110px !important;
+      }
+      .equipo-info {
+        padding: 10px 6px !important;
+      }
+      .escuela-info {
+        padding: 12px 6px !important;
+        font-size: 0.98em !important;
+        margin-bottom: 18px !important;
+      }
+      .staff-grid {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+      }
+      .staff-imagen {
+        height: 110px !important;
+      }
+      .staff-info {
+        padding: 10px 6px !important;
+      }
+      .titulo-seccion {
+        font-size: 1.3rem !important;
+        margin-bottom: 18px !important;
+        padding-bottom: 8px !important;
+      }
+      .descripcion-seccion {
+        font-size: 1em !important;
+        margin-bottom: 10px !important;
+      }
+      .centrado {
+        width: 100% !important;
+        text-align: center !important;
+      }
+      .boton, .boton-celeste, .boton-rojo {
+        width: 100% !important;
+        font-size: 1em !important;
+        padding: 12px 0 !important;
+        margin: 8px 0 !important;
+      }
+      .pie .contenedor {
+        padding: 0 4px !important;
+      }
+      .columnas-footer {
+        flex-direction: column !important;
+        gap: 18px !important;
+      }
+      .columna-footer {
+        width: 100% !important;
+        margin-bottom: 10px !important;
+        text-align: center !important;
+      }
+      .logo-footer img {
+        max-width: 90px !important;
+      }
+      .redes-sociales-footer a {
+        font-size: 1.3em !important;
+        margin: 0 6px !important;
+      }
+      .info-contacto li {
+        font-size: 0.98em !important;
+      }
+      .copyright {
+        flex-direction: column !important;
+        gap: 8px !important;
+        font-size: 0.95em !important;
+        text-align: center !important;
+      }
+      .enlaces-legales {
+        flex-direction: column !important;
+        gap: 4px !important;
+        padding-left: 0 !important;
+      }
+      .enlaces-legales li {
+        margin-bottom: 2px !important;
+      }
+      .pie iframe {
+        height: 120px !important;
+      }
+    }
     </style>
 </head>
 <body>
@@ -577,5 +684,25 @@
         </div>
     </footer>
     <script src="js/script.js"></script>
+    <script>
+    // Animación de aparición para las tarjetas de categorías y staff
+    document.addEventListener('DOMContentLoaded', function() {
+        function animarAparicion(selector) {
+            const elementos = document.querySelectorAll(selector);
+            const observer = new window.IntersectionObserver((entradas) => {
+                entradas.forEach(entrada => {
+                    if (entrada.isIntersecting) {
+                        entrada.target.classList.add('aparece');
+                        observer.unobserve(entrada.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+            elementos.forEach(el => observer.observe(el));
+        }
+        animarAparicion('.categoria');
+        animarAparicion('.equipo-card');
+        animarAparicion('.staff-card');
+    });
+    </script>
 </body>
 </html>

@@ -141,6 +141,142 @@
                 min-height: 220px;
             }
         }
+        /* Mejoras para móviles */
+        @media (max-width: 600px) {
+      .slider, .slide {
+        border-radius: 10px !important;
+        min-height: 140px !important;
+      }
+      .slide .contenedor {
+        padding: 10px 4px !important;
+      }
+      .titulo-principal {
+        font-size: 1.2rem !important;
+        margin-bottom: 8px !important;
+      }
+      .subtitulo {
+        font-size: 1em !important;
+        margin-bottom: 8px !important;
+      }
+      .botones-hero {
+        flex-direction: column !important;
+        gap: 8px !important;
+      }
+      .boton, .boton-celeste, .boton-rojo, .boton-blanco {
+        width: 100% !important;
+        font-size: 1em !important;
+        padding: 12px 0 !important;
+        margin: 6px 0 !important;
+      }
+      .controles-slider {
+        flex-direction: row !important;
+        gap: 8px !important;
+        margin-top: 6px !important;
+      }
+      .indicadores-slider {
+        gap: 4px !important;
+      }
+      .indicador {
+        width: 10px !important;
+        height: 10px !important;
+      }
+      .tarjetas-grid {
+        flex-direction: column !important;
+        gap: 12px !important;
+        align-items: center !important;
+      }
+      .tarjeta {
+        width: 98vw !important;
+        max-width: 420px !important;
+        height: auto !important;
+        border-radius: 12px !important;
+      }
+      .tarjeta-imagen {
+        height: 110px !important;
+        border-radius: 12px 12px 0 0 !important;
+      }
+      .tarjeta-contenido {
+        padding: 10px 6px !important;
+      }
+      .tarjeta-titulo {
+        font-size: 1em !important;
+      }
+      .tarjeta-texto {
+        font-size: 0.95em !important;
+      }
+      .tarjeta-enlace {
+        width: 100% !important;
+        font-size: 1em !important;
+        padding: 10px 0 !important;
+        margin-top: 6px !important;
+      }
+      .seccion.fondo-blanco .contenedor {
+        max-width: 100vw !important;
+        padding: 0 6px !important;
+      }
+      .seccion.fondo-blanco > .contenedor[style] {
+        flex-direction: column !important;
+        gap: 18px !important;
+        align-items: stretch !important;
+      }
+      .sponsors-grid {
+        flex-direction: column !important;
+        gap: 12px !important;
+        align-items: center !important;
+      }
+      .sponsor-card {
+        width: 100% !important;
+        max-width: 350px !important;
+        margin: 0 auto !important;
+      }
+      .sponsor-logo img {
+        max-width: 100px !important;
+        height: auto !important;
+      }
+      .centrado {
+        width: 100% !important;
+        text-align: center !important;
+      }
+      .pie .contenedor {
+        padding: 0 4px !important;
+      }
+      .columnas-footer {
+        flex-direction: column !important;
+        gap: 18px !important;
+      }
+      .columna-footer {
+        width: 100% !important;
+        margin-bottom: 10px !important;
+        text-align: center !important;
+      }
+      .logo-footer img {
+        max-width: 90px !important;
+      }
+      .redes-sociales-footer a {
+        font-size: 1.3em !important;
+        margin: 0 6px !important;
+      }
+      .info-contacto li {
+        font-size: 0.98em !important;
+      }
+      .copyright {
+        flex-direction: column !important;
+        gap: 8px !important;
+        font-size: 0.95em !important;
+        text-align: center !important;
+      }
+      .enlaces-legales {
+        flex-direction: column !important;
+        gap: 4px !important;
+        padding-left: 0 !important;
+      }
+      .enlaces-legales li {
+        margin-bottom: 2px !important;
+      }
+      .pie iframe {
+        height: 120px !important;
+      }
+    }
     </style>
 </head>
 <body>
@@ -426,5 +562,65 @@
     </footer>
 
     <script src="js/script.js"></script>
+    <script>
+    // Slider principal de la sección hero
+    document.addEventListener('DOMContentLoaded', function() {
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.querySelector('.control-prev');
+        const nextBtn = document.querySelector('.control-next');
+        const indicadores = document.querySelectorAll('.indicador');
+        let actual = 0;
+        let intervalo;
+
+        function mostrarSlide(idx) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('actual', i === idx);
+            });
+            indicadores.forEach((ind, i) => {
+                ind.classList.toggle('activo', i === idx);
+            });
+            actual = idx;
+        }
+
+        function siguienteSlide() {
+            let idx = (actual + 1) % slides.length;
+            mostrarSlide(idx);
+        }
+        function anteriorSlide() {
+            let idx = (actual - 1 + slides.length) % slides.length;
+            mostrarSlide(idx);
+        }
+        function irASlide(idx) {
+            mostrarSlide(idx);
+        }
+        function iniciarAutoSlide() {
+            intervalo = setInterval(siguienteSlide, 6000);
+        }
+        function detenerAutoSlide() {
+            clearInterval(intervalo);
+        }
+
+        nextBtn.addEventListener('click', () => {
+            siguienteSlide();
+            detenerAutoSlide();
+            iniciarAutoSlide();
+        });
+        prevBtn.addEventListener('click', () => {
+            anteriorSlide();
+            detenerAutoSlide();
+            iniciarAutoSlide();
+        });
+        indicadores.forEach((ind, i) => {
+            ind.addEventListener('click', () => {
+                irASlide(i);
+                detenerAutoSlide();
+                iniciarAutoSlide();
+            });
+        });
+
+        mostrarSlide(0);
+        iniciarAutoSlide();
+    });
+    </script>
 </body>
 </html>
