@@ -1,4 +1,4 @@
-// Menú responsive
+
 document.addEventListener('DOMContentLoaded', function () {
     const menuBtn = document.querySelector('.boton-menu');
     const menu = document.querySelector('.menu');
@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
         menuBtn.classList.toggle('activo');
     });
 
-    // Cierra el menú al hacer click en un enlace (en móvil)
+ 
     document.querySelectorAll('.menu a').forEach(link => {
         link.addEventListener('click', () => {
             menu.classList.remove('activo');
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Animación de aparición al hacer scroll (valores y fotos históricas)
+ 
     const animarAlScroll = (selector) => {
         const elementos = document.querySelectorAll(selector);
         const observer = new IntersectionObserver((entradas) => {
@@ -30,7 +30,6 @@ document.addEventListener('DOMContentLoaded', function () {
     animarAlScroll('.valor-card');
     animarAlScroll('.foto-historica');
 
-    // Scroll suave para enlaces internos
     document.querySelectorAll('a[href^="#"]').forEach(enlace => {
         enlace.addEventListener('click', function (e) {
             const destino = document.querySelector(this.getAttribute('href'));

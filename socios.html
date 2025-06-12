@@ -37,7 +37,6 @@
         .subtitulo {
             font-family: var(--fuente-principal);
             font-weight: 300;
-            color: var(--color-blanco);
         }
         .titulo-seccion {
             font-family: var(--fuente-principal);
@@ -220,7 +219,7 @@
                 padding: 20px;
             }
         }
-        /* --- RESPONSIVE MOBILE (max-width: 600px) --- */
+      
         @media (max-width: 600px) {
             .seccion-socio {
                 padding: 30px 0;
@@ -314,15 +313,76 @@
                 gap: 4px;
                 margin-top: 6px;
             }
-            .hero-interno {
-                min-height: 180px;
-                padding: 30px 0 18px 0;
+            .hero-seccion {
+                min-height: 120px;
+                padding: 24px 0 10px 0;
                 background-size: cover !important;
             }
-            .hero-interno .contenedor {
+            .hero-seccion .contenedor {
                 padding: 0 8px;
             }
+            .hero-seccion .titulo-principal {
+                font-size: 2em; 
+                text-align: center;
+            }
+            .hero-seccion .subtitulo {
+                font-size: 1.3em; 
+                text-align: center;
+            }
         }
+    
+        .hero-seccion {
+            min-height: 220px;
+            padding: 110px 0 30px 0;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            background-size: cover !important;
+            background-position: center;
+            position: relative;
+        }
+        .hero-seccion .contenedor {
+            padding: 0 16px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        .hero-seccion .titulo-principal {
+            color: #fff;
+            font-size: 3em; 
+            margin-bottom: 8px;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+            text-align: center;
+            font-weight: 700;
+        }
+        .hero-seccion .subtitulo {
+            color: #fff;
+            font-size: 1.7em; 
+            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            text-align: center;
+            font-weight: 300;
+        }
+        @media (max-width: 600px) {
+            .hero-seccion {
+                min-height: 120px;
+                padding: 24px 0 10px 0;
+                background-size: cover !important;
+            }
+            .hero-seccion .contenedor {
+                padding: 0 8px;
+            }
+            .hero-seccion .titulo-principal {
+                font-size: 2em; 
+                text-align: center;
+            }
+            .hero-seccion .subtitulo {
+                font-size: 1.3em; 
+                text-align: center;
+            }
+        }
+      
+        .hero-interno { display: none !important; }
     </style>
 </head>
 <body>
@@ -351,7 +411,8 @@
             </nav>
         </div>
     </header>
-    <section class="hero-interno" style="background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/placeholder.svg?height=500&width=1920') no-repeat center center;">
+   
+    <section class="hero-seccion" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/placeholder.svg?height=500&width=1920');">
         <div class="contenedor">
             <h1 class="titulo-principal">Hacete Socio</h1>
             <p class="subtitulo">Formá parte de nuestra gran familia</p>
@@ -463,9 +524,6 @@
                         <a href="https://www.instagram.com/clubdeportivoespanol/?hl=es" aria-label="Instagram">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://x.com/CDEspanol?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" aria-label="X">
-                            <i class="fab fa-x-twitter"></i>
-                        </a>
                         <a href="https://www.youtube.com/c/FuriaEspa%C3%B1olaTV" aria-label="YouTube">
                             <i class="fab fa-youtube"></i>
                         </a>
@@ -537,19 +595,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const email        = document.getElementById('email').value.trim();
     const categoria    = document.getElementById('categoria').value;
     const metodo_pago  = document.getElementById('pago').value;
-    // Validación de nombre: solo letras, espacios y mínimo 3 caracteres
+
     if (!/^[A-Za-zÁÉÍÓÚáéíóúÑñ ]{3,}$/.test(nombre)) {
       mensaje.innerText = '❌ Ingresá un nombre válido (solo letras y mínimo 3 caracteres).';
       mensaje.style.color = 'darkred';
       return;
     }
-    // Validación de DNI: solo números, 7 a 9 dígitos
+
     if (!/^\d{7,9}$/.test(dni)) {
       mensaje.innerText = '❌ Ingresá un DNI válido (7 a 9 dígitos numéricos).';
       mensaje.style.color = 'darkred';
       return;
     }
-    // Validación de email: formato correcto
+
     if (!/^\S+@\S+\.\S+$/.test(email)) {
       mensaje.innerText = '❌ Ingresá un email válido.';
       mensaje.style.color = 'darkred';
@@ -560,11 +618,11 @@ document.addEventListener('DOMContentLoaded', () => {
       mensaje.style.color = 'darkred';
       return;
     }
-    // Deshabilitar botón para evitar doble submit
+
     const boton = formulario.querySelector('.boton-asociarme');
     boton.disabled = true;
     boton.innerText = 'Enviando...';
-    // Validar que el DNI o email no estén ya registrados
+
     let { data: dniExistente } = await supabaseClient
       .from('socios')
       .select('dni')
@@ -589,7 +647,7 @@ document.addEventListener('DOMContentLoaded', () => {
       boton.innerText = 'Asociarme';
       return;
     }
-    // Insertar nuevo socio
+
     const { data, error } = await supabaseClient
       .from('socios')
       .insert([{

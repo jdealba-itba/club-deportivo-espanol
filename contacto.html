@@ -220,7 +220,7 @@
             height: 100%;
             border: none;
         }
-        /* Mejoras para móviles */
+      
         @media (max-width: 600px) {
       .seccion-contacto {
         padding: 30px 0 !important;
@@ -374,7 +374,7 @@
             <h2 class="titulo-seccion">Contacto</h2>
             
             <div class="contenido-contacto">
-                <!-- Columna del formulario -->
+             
                 <div class="columna-formulario">
                     <div class="contenedor-formulario">
                         <form class="formulario-contacto" id="formulario-contacto">
@@ -401,7 +401,7 @@
                     </div>
                 </div>
                 
-                <!-- Columna de información de contacto -->
+           
                 <div class="columna-info">
                     <div class="contenedor-info">
                         <h3 class="titulo-info">Información de contacto</h3>
@@ -450,9 +450,6 @@
                                 <a href="https://www.facebook.com/CDEspanol1956/?locale=es_LA" class="enlace-red" aria-label="Facebook">
                                     <i class="fab fa-facebook-f"></i>
                                 </a>
-                                <a href="https://x.com/CDEspanol?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" class="enlace-red" aria-label="Twitter">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
                             </div>
                         </div>
                         
@@ -478,9 +475,6 @@
                         </a>
                         <a href="https://www.instagram.com/clubdeportivoespanol/?hl=es" aria-label="Instagram">
                             <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://x.com/CDEspanol?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" aria-label="X">
-                            <i class="fab fa-x-twitter"></i>
                         </a>
                         <a href="https://www.youtube.com/c/FuriaEspa%C3%B1olaTV" aria-label="YouTube">
                             <i class="fab fa-youtube"></i>
@@ -553,35 +547,35 @@ document.addEventListener('DOMContentLoaded', () => {
     const telefono = document.getElementById('telefono-contacto').value.trim();
     const email    = document.getElementById('correo-contacto').value.trim();
     const mensaje  = document.getElementById('mensaje-contacto').value.trim();
-    // Validación de nombre: solo letras, espacios y mínimo 3 caracteres
+
     if (!/^[A-Za-zÁÉÍÓÚáéíóúÑñ ]{3,}$/.test(nombre)) {
       feedback.innerText = '❌ Ingresá un nombre válido (solo letras y mínimo 3 caracteres).';
       feedback.style.color = 'darkred';
       return;
     }
-    // Validación de teléfono: 7-15 dígitos, solo números y símbolos válidos
+
     if (!/^[0-9+\s()-]{7,15}$/.test(telefono)) {
       feedback.innerText = '❌ Ingresá un teléfono válido (7 a 15 dígitos, solo números y símbolos + - ( )).';
       feedback.style.color = 'darkred';
       return;
     }
-    // Validación de email: formato correcto
+
     if (!/^\S+@\S+\.\S+$/.test(email)) {
       feedback.innerText = '❌ Ingresá un correo electrónico válido.';
       feedback.style.color = 'darkred';
       return;
     }
-    // Validación de mensaje: mínimo 10 caracteres
+
     if (mensaje.length < 10) {
       feedback.innerText = '❌ El mensaje debe tener al menos 10 caracteres.';
       feedback.style.color = 'darkred';
       return;
     }
-    // Deshabilitar botón para evitar doble submit
+
     const boton = formulario.querySelector('.boton-enviar');
     boton.disabled = true;
     boton.innerText = 'Enviando...';
-    // Guardar en Supabase
+
     const { error, data } = await supabaseClient
       .from('contacto')
       .insert([{ 
@@ -598,7 +592,7 @@ document.addEventListener('DOMContentLoaded', () => {
       console.error(error);
       return;
     }
-    // Enviar mail con EmailJS
+
     emailjs.sendForm('service_0k03ypc', 'template_7pasgtx', formulario)
       .then(() => {
         feedback.innerText = '✅ ¡Mensaje registrado con éxito! Te enviamos un correo con los pasos a seguir.';

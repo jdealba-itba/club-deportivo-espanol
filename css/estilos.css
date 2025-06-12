@@ -1,7 +1,6 @@
-/* Importación de Poppins */
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-/* Variables CSS - Paleta oficial */
 :root {
     --color-rojo: #AA151B;
     --color-celeste: #58C2F5;
@@ -17,7 +16,7 @@
     --fuente-principal: 'Poppins', sans-serif;
 }
 
-/* Reset y estilos base */
+
 * {
     margin: 0;
     padding: 0;
@@ -57,20 +56,20 @@ ul {
     list-style: none;
 }
 
-/* Asegura tipografía uniforme en todo el sitio */
+
 html, body, input, select, textarea, button {
     font-family: 'Poppins', sans-serif !important;
     font-weight: 400;
     color: var(--color-negro);
 }
 
-/* Corrige colores de fondo y texto para uniformidad */
+
 body {
     background-color: var(--color-blanco);
     color: var(--color-negro);
 }
 
-/* Botones: asegúrate de que todos los botones usen la paleta y tipografía */
+
 .boton,
 .boton-rojo,
 .boton-celeste,
@@ -81,7 +80,7 @@ body {
     transition: var(--transicion);
 }
 
-/* Botón blanco para contraste */
+
 .boton-blanco {
     background-color: var(--color-blanco);
     color: var(--color-rojo);
@@ -92,7 +91,7 @@ body {
     color: var(--color-blanco);
 }
 
-/* Clases reutilizables para fondos */
+
 .fondo-rojo {
     background-color: var(--color-rojo) !important;
     color: var(--color-blanco) !important;
@@ -118,13 +117,13 @@ body {
     color: var(--color-negro) !important;
 }
 
-/* Corrige clases de texto para uniformidad */
+
 .texto-rojo { color: var(--color-rojo) !important; }
 .texto-celeste { color: var(--color-celeste) !important; }
 .texto-negro { color: var(--color-negro) !important; }
 .texto-blanco { color: var(--color-blanco) !important; }
 
-/* Títulos y subtítulos */
+
 h1, h2, h3, h4, h5, h6,
 .titulo-principal,
 .titulo-seccion,
@@ -145,7 +144,7 @@ h1, h2, h3, h4, h5, h6,
     font-weight: 500;
 }
 
-/* Clases reutilizables para bordes */
+
 .borde-rojo {
     border: 2px solid var(--color-rojo);
 }
@@ -162,7 +161,7 @@ h1, h2, h3, h4, h5, h6,
     border: 2px solid var(--color-blanco);
 }
 
-/* Clases reutilizables para botones */
+
 .boton {
     display: inline-block;
     padding: 12px 24px;
@@ -215,7 +214,7 @@ h1, h2, h3, h4, h5, h6,
     box-shadow: var(--sombra);
 }
 
-/* Contenedores y estructura */
+
 .contenedor {
     width: 100%;
     max-width: 1200px;
@@ -232,7 +231,7 @@ h1, h2, h3, h4, h5, h6,
     margin-top: 40px;
 }
 
-/* Tipografía */
+
 h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     line-height: 1.2;
@@ -295,7 +294,7 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--color-negro);
 }
 
-/* Header y navegación */
+
 .cabecera {
     position: fixed;
     top: 0;
@@ -386,7 +385,7 @@ h1, h2, h3, h4, h5, h6 {
     transition: var(--transicion);
 }
 
-/* Hero y Slider */
+
 .hero {
     position: relative;
     height: 100vh;
@@ -441,7 +440,6 @@ h1, h2, h3, h4, h5, h6 {
     z-index: 1;
 }
 
-/* Hero específico para secciones */
 .hero-seccion {
     height: 35vh;
     min-height: 180px;
@@ -755,7 +753,7 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 5px 15px rgba(213, 0, 0, 0.3);
 }
 
-/* Estilos para campos con error */
+
 .campo-error input,
 .campo-error select,
 .campo-error textarea {
@@ -774,7 +772,7 @@ h1, h2, h3, h4, h5, h6 {
     display: block;
 }
 
-/* Mensaje de éxito */
+
 .mensaje-exito {
     background-color: #4CAF50 !important;
     color: var(--color-blanco) !important;
@@ -788,7 +786,7 @@ h1, h2, h3, h4, h5, h6 {
     display: block;
 }
 
-/* Estilos para el carrusel de sponsors */
+
 .sponsors-carousel {
     position: relative;
     padding: 20px 0;
@@ -892,7 +890,7 @@ h1, h2, h3, h4, h5, h6 {
     background: var(--color-rojo);
 }
 
-/* Media queries para el carrusel de sponsors */
+
 @media (max-width: 1024px) {
     .sponsor-card {
         flex: 0 0 calc(33.333% - 20px);
@@ -911,7 +909,7 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-/* Media queries para hero */
+
 @media (max-width: 1024px) {
     .hero-seccion {
         height: 50vh;
