@@ -578,7 +578,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'https://mnwcpllqxqkmdhxdossl.supabase.co',
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1ud2NwbGxxeHFrbWRoeGRvc3NsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc4MDA3MDYsImV4cCI6MjA2MzM3NjcwNn0.dBcLjWA09F7Lpy19SRYdb2bDXFfHscpF3vpHcz-f_F8'
   );
-  emailjs.init('Vzd_WPCIFPISk5GUn');
+  emailjs.init('ZMAY8t_vumV4xa6AO');
   const formulario = document.getElementById('formulario-socio');
   let mensaje = document.getElementById('mensaje');
   if (!mensaje) {
@@ -598,24 +598,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!/^[A-Za-zÁÉÍÓÚáéíóúÑñ ]{3,}$/.test(nombre)) {
       mensaje.innerText = '❌ Ingresá un nombre válido (solo letras y mínimo 3 caracteres).';
-      mensaje.style.color = 'darkred';
+      mensaje.style.color = '#fff';
       return;
     }
 
-    if (!/^\d{7,9}$/.test(dni)) {
-      mensaje.innerText = '❌ Ingresá un DNI válido (7 a 9 dígitos numéricos).';
-      mensaje.style.color = 'darkred';
+    // DNI: 7 u 8 dígitos, no puede empezar con 0
+    if (!/^[1-9][0-9]{6,7}$/.test(dni)) {
+      mensaje.innerText = '❌ Ingresá un DNI válido (7 u 8 dígitos, sin ceros iniciales).';
+      mensaje.style.color = '#fff';
       return;
     }
 
     if (!/^\S+@\S+\.\S+$/.test(email)) {
       mensaje.innerText = '❌ Ingresá un email válido.';
-      mensaje.style.color = 'darkred';
+      mensaje.style.color = '#fff';
       return;
     }
     if (!categoria || !metodo_pago) {
       mensaje.innerText = '❌ Seleccioná una categoría y método de pago.';
-      mensaje.style.color = 'darkred';
+      mensaje.style.color = '#fff';
       return;
     }
 
@@ -630,7 +631,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .maybeSingle();
     if (dniExistente) {
       mensaje.innerText = '❌ Ya existe un socio registrado con ese DNI.';
-      mensaje.style.color = 'darkred';
+      mensaje.style.color = '#fff';
       boton.disabled = false;
       boton.innerText = 'Asociarme';
       return;
@@ -642,7 +643,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .maybeSingle();
     if (emailExistente) {
       mensaje.innerText = '❌ Ya existe un socio registrado con ese email.';
-      mensaje.style.color = 'darkred';
+      mensaje.style.color = '#fff';
       boton.disabled = false;
       boton.innerText = 'Asociarme';
       return;
@@ -659,26 +660,31 @@ document.addEventListener('DOMContentLoaded', () => {
       }]);
     if (error) {
       mensaje.innerText = '❌ Error al guardar: ' + error.message;
-      mensaje.style.color = 'darkred';
+      mensaje.style.color = '#fff';
       boton.disabled = false;
       boton.innerText = 'Asociarme';
       console.error(error);
       return;
     }
+
+    // Envío de correo con EmailJS; extrae automáticamente los campos "nombre" y "email" (entre otros) del formulario
     emailjs.sendForm('service_0k03ypc', 'template_nrw3zqd', formulario)
-      .then(() => {
+      .then((response) => {
         mensaje.innerText = '✅ ¡Socio registrado con éxito! Te enviamos un correo con los pasos a seguir.';
-        mensaje.style.color = 'green';
+        mensaje.style.color = '#fff';
         formulario.reset();
         boton.disabled = false;
         boton.innerText = 'Asociarme';
       })
       .catch((err) => {
         mensaje.innerText = '⚠️ Socio registrado, pero no se pudo enviar el correo.';
-        mensaje.style.color = 'darkorange';
+        mensaje.style.color = '#fff';
         boton.disabled = false;
         boton.innerText = 'Asociarme';
-        console.error(err);
+        console.error('EmailJS error:', err);
+        if (err && err.text) {
+          alert('Error al enviar el correo: ' + err.text + '\nVerifica en EmailJS que el template y los campos coincidan.');
+        }
       });
   });
 });
